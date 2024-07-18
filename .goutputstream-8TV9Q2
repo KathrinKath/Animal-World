@@ -238,7 +238,7 @@ startGame
 └── getWeightEmoji
 └── checkWeightStatus
 
-## Functions Explanation:
+## Explanation:
 
 - startGame: Entry point of the game logic.
 - calculateMood: Calculates and returns the mood of the pet.

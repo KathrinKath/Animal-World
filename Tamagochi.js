@@ -1,6 +1,8 @@
 // !Test version 16.07.2024 19:30
 // ! Used as a main version 16.07.2024 ,23:30
-// ! Used as a main version 16.07.2024 ,13:30
+// ! Used as a main version 17.07.2024 ,22:30
+// ! Used as a main version 1.07.2024 ,12:30
+
 // Importing necessary modules
 const readline = require("readline"); // Module for reading user input
 const colors = require("colors"); // Module for colored output in the console
@@ -11,6 +13,21 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+// Initial values for pet needs, health, age, and points
+// ? Object needs
+const needs = {
+  food: 100,
+  energy: 100,
+  toilet: 100,
+  fun: 100,
+  hygiene: 100,
+  social: 100
+};
+let health = 100;
+let age = 0;
+let points = 0;
+let weight = 1;
+// * new weight variable declaration
 // Function to check if the input contains only letters
 // ? Function name check
 function isValidName(input) {
@@ -54,6 +71,7 @@ function getAgeEmoji(value) {
     return "👶";
   }
 }
+
 // Function to get points emoji based on the points value
 // ? Function points emojis
 function getPointsEmoji(value) {
@@ -78,159 +96,253 @@ function getPointsEmoji(value) {
     return "🧾";
   }
 }
-// Initial values for pet needs, health, age, and points
-// ? Object needs
-const needs = {
-  food: 100,
-  energy: 100,
-  toilet: 100,
-  fun: 100,
-  hygiene: 100,
-  social: 100
-};
-let health = 100;
-let age = 0;
-let points = 0;
+// ? Function weight emojis
+function getWeightEmoji(updatedStatus) {
+  if (updatedStatus === "Overweight") {
+    return "🐽";
+  } else if (updatedStatus === "Normal") {
+    return "💯";
+  } else if (updatedStatus === "Underweight") {
+    return "❗";
+  }
+}
+
+// ? Function weight Status
+function checkWeightStatus(weight, age) {
+  let updatedStatus = "";
+  if (weight >= age + 11) {
+    updatedStatus = "Overweight";
+  } else if (weight < age + 11 && weight > age - 10) {
+    updatedStatus = "Normal";
+  } else if (weight <= age - 10) {
+    updatedStatus = "Underweight";
+  }
+  return updatedStatus; //  Return the status
+}
+// ? Function weight affecs
+function getWeightAffects(updatedStatus) {
+  if (updatedStatus === "Overweight") {
+    return health--, hygiene--, energy--, fun--;
+  } else if (updatedStatus === "Underweight") {
+    return health++, social++, energy++, fun++;
+  } else if (updatedStatus === "Normal") {
+    return health--, energy--;
+  }
+}
 // Array of random events with their effects and emojis
 // ? Object events
 const randomEvents = [
   {
     name: "Pet is in love",
-    description: "Increases social need to 100",
-    affect: { social: 100 },
+    description: "social: 100, fun: +20",
+    affect: { social: 100, fun: +20 },
     eventEmoji: "💘"
   },
   {
     name: "Pet lost a friend",
-    description: "Deccreases social need by 20",
-    affect: { social: -20 },
+    description: "social: -20, fun: -20",
+    affect: { social: -20, fun: -20 },
     eventEmoji: "😭"
   },
   {
     name: "Pet gets a snack",
-    description: "Gives 10 points for the food need",
-    affect: { food: +10 },
+    description: "food: +10, weight: +1",
+    affect: { food: +10, weight: +1 },
     eventEmoji: "🥮"
   },
   {
     name: "Pet is sick",
-    description: "Decreases energy need by 20 and fun by 10",
-    affect: { energy: -20, fun: -10 },
+    description: "energy: -20, fun: -10, hygiene: -5",
+    affect: { energy: -20, fun: -10, hygiene: -5 },
     eventEmoji: "🤢"
   },
   {
     name: "Pet has travelled",
-    description: "Increases social and fun needs by 20",
-    affect: { social: +20, fun: +20 },
+    description: "social: +20, fun: +20, energy: -5",
+    affect: { social: +20, fun: +20, energy: -5 },
     eventEmoji: "🌍"
   },
   {
     name: "Pet visited a friend",
-    description: "Increases social and fun needs by 20",
+    description: "social: +20, fun: +20",
     affect: { social: +20, fun: +20 },
     eventEmoji: "🍻"
   },
   {
     name: "Pet has a new toy",
-    description: "Increases fun need by 20",
-    affect: { fun: +20 },
+    description: "fun: +20, social: +10",
+    affect: { fun: +20, social: +10 },
     eventEmoji: "🧸"
   },
   {
     name: "Pet has been vaccinated",
-    description: "Increases health need by 30 and cost 10 points",
+    description: "health: +30, points: -10",
     affect: { health: +30, points: -10 },
     eventEmoji: "💉"
   },
   {
     name: "Pet found a treasure",
-    description: "Increases points by 30",
-    affect: { points: +30 },
+    description: "points: +30, fun: +20",
+    affect: { points: +30, fun: +20 },
     eventEmoji: "💰"
   },
   {
     name: "Pet Went to the Vet",
-    description:
-      "Your pet had a check-up at the vet. It costs 10 points and increases the health by 20",
+    description: " health: +20, points: -10",
     affect: { health: +20, points: -10 },
     eventEmoji: "🩺"
   },
   {
     name: "Pet Found a Friend",
-    description: "Your pet made a new friend! Social need increased by 50",
-    affect: { social: +50 },
+    description: " social: +50, fun: +20",
+    affect: { social: +50, fun: +20 },
     eventEmoji: "🤼"
   },
   {
     name: "Pet Got a Bath",
-    description:
-      "Your pet got a refreshing bath. Icreases hygiene need to 100 and increases health and social needs by 10",
+    description: "health: +10, social: +10, hygiene: 100",
     affect: { health: +10, social: +10, hygiene: 100 },
     eventEmoji: "🛁"
   },
   {
     name: "Pet Played in the Mud",
-    description:
-      "Your pet played in the mud. It decreases the hygiene need by 40 and health by 5, increase social by 10 and fun by 30",
+    description: "health: -5, social: +10, hygiene: -40, fun: +30",
     affect: { health: -5, social: +10, hygiene: -40, fun: +30 },
     eventEmoji: "🏖"
   },
   {
     name: "Pet Had a Bad Dream",
-    description:
-      "Your pet had a scary dream. Decreases fun by 10 and social by 5",
+    description: " social: -5, fun: -10",
     affect: { social: -5, fun: -10 },
     eventEmoji: "👹"
   },
   {
     name: "Pet Discovered a New Place",
-    description:
-      "Your pet explored a new area. You gained 10 points and increased social need by 20",
+    description: "social: +20, points: +10",
     affect: { social: +20, points: +10 },
     eventEmoji: "🏞"
   },
   {
     name: "Pet Played in the Rain",
-    description: "Increases fun by 30 but decreases hygiene by 10",
+    description: "fun: +30, hygiene: -10",
     affect: { fun: +30, hygiene: -10 },
     eventEmoji: "🌧"
   },
   {
     name: "Pet Found a Cozy Spot",
-    description: "Increases energy by 20",
-    affect: { energy: +20 },
+    description: "energy: +20, fun: +15",
+    affect: { energy: +20, fun: +15 },
     eventEmoji: "🏝"
   },
   {
     name: "Pet Got Stung by a Bee",
-    description: "Decreases health by 10 and fun by 10",
+    description: "health: -10, fun: -10",
     affect: { health: -10, fun: -10 },
     eventEmoji: "🐝"
   },
   {
     name: "Pet Visited a Park",
-    description: "Increases social and fun by 25",
+    description: "social: +25, fun: +25",
     affect: { social: +25, fun: +25 },
     eventEmoji: "🌳"
   },
   {
     name: "Pet Attended a Pet Show",
-    description:
-      "Increases social by 30 and fun by 20, it cost 10 points and decrease the energy by 15",
+    description: "social: +30, fun: +20, points: -10, energy: -15",
     affect: { social: +30, fun: +20, points: -10, energy: -15 },
     eventEmoji: "🤡"
   },
   {
     name: "Pet Had a Sunny Day",
-    description: "Increases energy and fun by 10",
+    description: "energy: +10, fun: +10",
     affect: { energy: +10, fun: +10 },
     eventEmoji: "🌞"
   },
   {
     name: "Pet Learned a New Game",
-    description: "Increases fun by 25 and points by 15",
+    description: "fun: +25, points: +15",
     affect: { fun: +25, points: +15 },
     eventEmoji: "🎮"
+  },
+  {
+    name: "Pet have got a medical treatment",
+    description: "health: +20, points: -5",
+    affect: { health: +20, points: -5 },
+    eventEmoji: "💊"
+  },
+  {
+    name: "Pet smoked marijuana",
+    description: "health: 100, fun: 100, energy: -10",
+    affect: { health: 100, fun: 100, energy: -10 },
+    eventEmoji: "🌿"
+  },
+  {
+    name: "Pet ate a mushroom",
+    description: "health: -5, fun: +30, energy: +100",
+    affect: { health: -5, fun: +30, energy: +10 },
+    eventEmoji: "🍄"
+  },
+  {
+    name: "Pet is heartbroken",
+    description: "health: -5, fun: -10, social: -20",
+    affect: { health: -5, fun: -10, social: -20 },
+    eventEmoji: "❤️‍🩹"
+  },
+  {
+    name: "Pet enjoyed a cosmetic treatment",
+    description: "health: +10, points: -5, fun: +20, social: +15, hygiene: +20",
+    affect: { health: +10, points: -5, fun: +20, social: +15, hygiene: +20 },
+    eventEmoji: "💅"
+  },
+  {
+    name: "Its CHRISTMAS!!",
+    description: "fun: +30, social: +30, hygiene: +20, food: +20, weight: +1",
+    affect: { fun: +30, social: +30, hygiene: +20, food: +20, weight: +1 },
+    eventEmoji: "🎅"
+  },
+  {
+    name: "Pet enjoyed eating some junkfood",
+    description: "health: -5, fun: +20, weight: +1",
+    affect: { health: -5, fun: +20, weight: +1 },
+    eventEmoji: "🍔"
+  },
+  {
+    name: "Pet enjoyed eating some sweets",
+    description: "health: -5, fun: +20, social: +5, weight: +1",
+    affect: { health: -5, fun: +20, social: +5, weight: +1 },
+    eventEmoji: "🍭"
+  },
+  {
+    name: "Pet attended an event",
+    description:
+      " health: +10, energy: -10, fun: +20,  social: +15, hygiene: +20, food: +20",
+    affect: {
+      health: +10,
+      energy: -10,
+      fun: +20,
+      social: +15,
+      hygiene: +20,
+      food: +20
+    },
+    eventEmoji: "🥂"
+  },
+  {
+    name: "Pet won a competition! Bravo!",
+    description: "social: +10, points: +15, fun: +30, social: +25",
+    affect: { social: +10, points: +15, fun: +30, social: +25 },
+    eventEmoji: "🏆"
+  },
+  {
+    name: "Pet is injured, auch!",
+    description: "health: -10, fun: -10, hygiene: -10",
+    affect: { health: -10, fun: -10, hygiene: -10 },
+    eventEmoji: "🩹"
+  },
+  {
+    name: "Pet hosts a good friend",
+    description: "fun: +20, social: +25",
+    affect: { fun: +20, social: +25 },
+    eventEmoji: "☕"
   }
 ];
 // Function to check and trigger a random event based on pet's age
@@ -263,6 +375,13 @@ function checkAndTriggerRandomEvent() {
         points += randomEvent.affect[need]; // Adjust points if affected
         if (points < 0) {
           points = 0; // Ensure points don't go below 0
+        }
+      } else if (need === "weight") {
+        weight += randomEvent.affect[need]; // Adjust weight if affected
+        if (weight < 0) {
+          weight = 0; // Ensure weight doesn't go below 0
+        } else if (weight > 100) {
+          weight = 100; // Ensure weight doesn't exceed 100
         }
       }
     }
@@ -472,6 +591,7 @@ function startGame() {
           // ? Function display needs
           function displayNeeds() {
             let mood = calculateMood(); // Calculate the pet's mood
+            let updatedStatus = checkWeightStatus(weight, age); // Ensure weight status is updated
             // Create a new table for user affect parameters
             // ? Table animals needs values and status columns
             const table = new Table({
@@ -537,7 +657,8 @@ function startGame() {
               ["🎭 Mood", `${mood.toFixed(2)}`, `${getEmoji(mood)}`], // Row for Mood parameter
               ["🩺 Health", `${health}`, `${getEmoji(health)}`], // Row for Health parameter
               ["👵 Age", `${age} days`, `${getAgeEmoji(age)}`], // Row for Age parameter
-              ["💰 Points", `${points}`, `${getPointsEmoji(points)}`] // Row for Points parameter
+              ["💰 Points", `${points}`, `${getPointsEmoji(points)}`], // Row for Points parameter
+              ["🏋️‍♂️ Weight", `${weight}`, `${getWeightEmoji(updatedStatus)}`]
             );
             // Outputting the additionalTable in string format
             // ? Table printed on terminal
@@ -562,11 +683,11 @@ function startGame() {
           function decreaseNeeds() {
             for (const need in needs) {
               needs[need] -= 1;
-              if (needs[need] <= 0) {
+              if (needs[need] <= 0 || weight <= 0) {
                 // Checks and prints why animal died
                 console.log(
                   colors.bgRed.black.bold(
-                    `Your pet ${name} has died at ${age} days due to your neglect, your pet needed ${need}! 💀`
+                    `Your pet ${name} has died at ${age} days due to your neglection😤. Your pet needed ${need}! 💀`
                   )
                 );
                 // Clear the interval associated with decreasing attributes (e.g., hunger, happiness)
@@ -575,8 +696,12 @@ function startGame() {
                 clearInterval(healthInterval);
                 // Clear the interval associated with age-related updates
                 clearInterval(ageInterval);
-                // Clear the interval associated with health bonus updates (if applicable)
+                // Clear the interval associated with health bonus updates
                 clearInterval(healthBonusInterval);
+                // Clear the interval that updates the weight display
+                clearInterval(weightInterval);
+                // Clear the interval that reports weight data
+                clearInterval(weightReportInterval);
                 // Close the readline interface, terminating the program or process
                 rl.close();
               }
@@ -584,7 +709,6 @@ function startGame() {
             checkNeeds();
             displayNeeds();
           }
-
           // Function to decrease health every second if needs are low
           // ? Function decrease health
           function decreaseHealth() {
@@ -607,17 +731,19 @@ function startGame() {
                 clearInterval(ageInterval);
                 // Clear the interval associated with health bonus updates (if applicable)
                 clearInterval(healthBonusInterval);
+                clearInterval(weightInterval);
+                clearInterval(weightReportInterval);
                 // Close the readline interface, terminating the program or process
                 rl.close(); // Close readline interface
                 return;
               }
             }
           }
-
           // Function to increase age by 1 day every 10 seconds
           // ? Function increase age
           function increaseAge() {
             age += 1;
+            weight += 1;
             checkAndTriggerRandomEvent(); // Checks if 7 days past for randomal events
             if (age % 100 === 0) {
               // Check if age reached to a century
@@ -636,14 +762,13 @@ function startGame() {
               );
             }
           }
-
           // Function to increase health based on points
           // ? Function increase health
           function increaseHealth() {
             // Increase health if points are sufficient and health is not at maximum
             if (points > 30 && health <= 90) {
               health += 10;
-              points -= 20;
+              points -= 15;
             }
             // Check health status and inform the user for every change
             if (health >= 90) {
@@ -691,6 +816,14 @@ function startGame() {
           }, 3000);
           // Start increasing age every 10 seconds
           const ageInterval = setInterval(increaseAge, 10000);
+          // Set an interval to periodically check weight status every 3 seconds
+          const weightInterval = setInterval(() => {
+            checkWeightStatus();
+          }, 3000);
+          // Set an interval to periodically fetch weight affects every 3 seconds
+          const weightReportInterval = setInterval(() => {
+            getWeightAffects();
+          }, 3000);
           // Function to display menu and handle user input
           // ? Function display menu
           function displayMenu() {
@@ -698,22 +831,31 @@ function startGame() {
               switch (action.trim()) {
                 case "1":
                   // Option 1: Feed the animal
+                  // * Check for over or underweight
                   needs.food = Math.min(needs.food + 30, 100);
-                  needs.toilet = Math.max(needs.toilet - 15, 0);
+                  needs.toilet = Math.max(needs.toilet - 10, 0);
                   needs.energy = Math.max(needs.energy - 5, 0);
                   points++;
                   if (needs.food === 100) {
                     points++;
                   }
+                  if (needs.food >= 100) {
+                    weight++;
+                  }
+                  if (needs.food <= 30) {
+                    weight--;
+                  }
+                  // ? Function checks the weight status
+                  checkWeightStatus(weight, age);
                   console.log(colors.bgCyan.bold(`${name} has been fed.😋`));
                   break;
                 case "2":
                   // Option 2: Animal takes a nap
                   needs.energy = Math.min(needs.energy + 30, 100);
-                  needs.toilet = Math.max(needs.toilet - 10, 0);
+                  needs.toilet = Math.max(needs.toilet - 5, 0);
                   needs.food = Math.max(needs.food - 5, 0);
                   needs.hygiene = Math.max(needs.hygiene - 5, 0);
-                  needs.social = Math.max(needs.social - 10, 0);
+                  needs.fun = Math.min(needs.fun + 5, 100);
                   points++;
                   if (needs.energy === 100) {
                     points++;
@@ -724,7 +866,7 @@ function startGame() {
                   // Option 3: Animal uses the toilet
                   needs.toilet = Math.min(needs.toilet + 30, 100);
                   needs.food = Math.max(needs.food - 5, 0);
-                  needs.hygiene = Math.max(needs.hygiene - 15, 0);
+                  needs.hygiene = Math.max(needs.hygiene - 10, 0);
                   points++;
                   if (needs.toilet === 100) {
                     points++;
@@ -736,9 +878,11 @@ function startGame() {
                 case "4":
                   // Option 4: Animal has fun
                   needs.fun = Math.min(needs.fun + 30, 100);
-                  needs.energy = Math.max(needs.energy - 15, 0);
-                  needs.toilet = Math.max(needs.toilet - 10, 0);
-                  needs.food = Math.max(needs.food - 15, 0);
+                  needs.energy = Math.max(needs.energy - 10, 0);
+                  needs.toilet = Math.max(needs.toilet - 5, 0);
+                  needs.food = Math.max(needs.food - 10, 0);
+                  needs.social = Math.min(needs.social + 10, 100);
+                  needs.hygiene = Math.max(needs.hygiene - 5, 0);
                   points++;
                   if (needs.fun === 100) {
                     points++;
@@ -752,6 +896,7 @@ function startGame() {
                   needs.hygiene = Math.min(needs.hygiene + 30, 100);
                   needs.energy = Math.min(needs.energy + 5, 100);
                   needs.toilet = Math.min(needs.toilet + 5, 100);
+                  needs.fun = Math.min(needs.food + 5, 100);
                   points++;
                   if (needs.hygiene === 100) {
                     points++;
@@ -762,11 +907,10 @@ function startGame() {
                   break;
                 case "6":
                   // Option 6: Animal socializes
-                  needs.social = Math.min(needs.social + 20, 100);
+                  needs.social = Math.min(needs.social + 30, 100);
                   needs.fun = Math.min(needs.fun + 10, 100);
-                  needs.energy = Math.max(needs.energy - 20, 0);
-                  needs.toilet = Math.max(needs.toilet - 10, 0);
-                  needs.food = Math.max(needs.food - 10, 0);
+                  needs.energy = Math.max(needs.energy - 10, 0);
+                  needs.toilet = Math.max(needs.toilet - 5, 0);
                   console.log(
                     colors.bgMagenta.bold(`${name} is socializing.🧑‍🤝‍🧑`)
                   );
@@ -782,6 +926,8 @@ function startGame() {
                   clearInterval(healthInterval);
                   clearInterval(ageInterval);
                   clearInterval(healthBonusInterval);
+                  clearInterval(weightInterval);
+                  clearInterval(weightReportInterval);
                   // Display exit message
                   console.log(colors.rainbow("Exiting the game...Bye bye"));
                   console.log("👋 🙋 👋");
