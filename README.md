@@ -103,8 +103,8 @@ To start the game:
 | Status      | Emoji | Parameters                             | Effects                                      |
 | ----------- | ----- | -------------------------------------- | -------------------------------------------- |
 | Overweight  | 🐽    | weight >= age + 11                     | `health--`, `hygiene--`, `energy--`, `fun--` |
-| Normal      | 💯    | weight < age + 11 && weight > age - 10 | `health--`, `energy--`                       |
-| Underweight | ❗    | weight <= age - 10                     | `health++`, `social++`, `energy++`, `fun++`  |
+| Normal      | 💯    | weight < age + 11 && weight > age - 10 | `health++`, `social++`, `energy++`, `fun++`  |
+| Underweight | ❗    | weight <= age - 10                     | `health--`, `energy--`                       |
 
 ## Calculations
 
@@ -238,7 +238,7 @@ startGame
 └── getWeightEmoji
 └── checkWeightStatus
 
-## Functions Explanation:
+## Explanation:
 
 - startGame: Entry point of the game logic.
 - calculateMood: Calculates and returns the mood of the pet.
