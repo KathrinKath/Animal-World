@@ -35,9 +35,8 @@ To start the game:
 2. Install dependencies with npm install.
 3. Install the color package via the terminal of the game: sudo npm install colors - the game will not run without it.
 4. install the table element for better view in the terminal: sudo npm install cli-table3
-5. Install play-sound addition to hear the sounds of the game: sudo npm install play-sound
-6. Run the game with node game.js (node Tamagochi.js).
-7. Leave the game by clicking "Ctrl + z" inside the terminal.
+5. Run the game with node game.js (node Tamagochi.js).
+6. Leave the game by clicking "Ctrl + z" inside the terminal.
 
 ## How to Play
 
@@ -120,42 +119,66 @@ To start the game:
 
 ## Random Events Table
 
-| Even Number | Event Emoji | Name of the Event                | Affects                                                                  |
-| ----------- | ----------- | -------------------------------- | ------------------------------------------------------------------------ |
-| 1           | 💘          | Pet is in love                   | social: +100, fun: +20                                                   |
-| 2           | 😭          | Pet lost a friend                | social: -20, fun: -20                                                    |
-| 3           | 🥮          | Pet gets a snack                 | food: +10, weight: +1                                                    |
-| 4           | 🤢          | Pet is sick                      | energy: -20, fun: -10, hygiene: -5                                       |
-| 5           | 🌍          | Pet has travelled                | social: +20, fun: +20, energy: -5                                        |
-| 6           | 🍻          | Pet visited a friend             | social: +20, fun: +20                                                    |
-| 7           | 🧸          | Pet has a new toy                | fun: +20, social: +10                                                    |
-| 8           | 💉          | Pet has been vaccinated          | health: +30, points: -10                                                 |
-| 9           | 💰          | Pet found a treasure             | points: +30, fun: +20                                                    |
-| 10          | 🩺          | Pet Went to the Vet              | health: +20, points: -10                                                 |
-| 11          | 🤼          | Pet Found a Friend               | social: +50, fun: +20                                                    |
-| 12          | 🛁          | Pet Got a Bath                   | health: +10, social: +10, hygiene: +100                                  |
-| 13          | 🏖           | Pet Played in the Mud            | health: -5, social: +10, hygiene: -40, fun: +30                          |
-| 14          | 👹          | Pet Had a Bad Dream              | social: -5, fun: -10                                                     |
-| 15          | 🏞           | Pet Discovered a New Place       | social: +20, points: +10                                                 |
-| 16          | 🌧           | Pet Played in the Rain           | fun: +30, hygiene: -10                                                   |
-| 17          | 🏝           | Pet Found a Cozy Spot            | energy: +20, fun: +15                                                    |
-| 18          | 🐝          | Pet Got Stung by a Bee           | health: -10, fun: -10                                                    |
-| 19          | 🌳          | Pet Visited a Park               | social: +25, fun: +25                                                    |
-| 20          | 🤡          | Pet Attended a Pet Show          | social: +30, fun: +20, points: -10, energy: -15                          |
-| 21          | 🌞          | Pet Had a Sunny Day              | energy: +10, fun: +10                                                    |
-| 22          | 🎮          | Pet Learned a New Game           | fun: +25, points: +15                                                    |
-| 23          | 💊          | Pet have got a medical treatment | health: +20, points: -5                                                  |
-| 24          | 🌿          | Pet smoked marijuana             | health: +100, fun: +100, energy: -10                                     |
-| 25          | 🍄          | Pet ate a mushroom               | health: -5, fun: +30, energy: +10                                        |
-| 26          | ❤️‍🩹          | Pet is heartbroken               | health: -5, fun: -10, social: -20                                        |
-| 27          | 💅          | Pet enjoyed a cosmetic treatment | health: +10, points: -5, fun: +20, social: +15, hygiene: +20             |
-| 28          | 🎅          | Its CHRISTMAS!!                  | fun: +30, social: +30, hygiene: +20, food: +20, weight: +1               |
-| 29          | 🍔          | Pet enjoyed eating some junkfood | health: -5, fun: +20, weight: +1                                         |
-| 30          | 🍭          | Pet enjoyed eating some sweets   | health: -5, fun: +20, social: +5, weight: +1                             |
-| 31          | 🥂          | Pet attended an event            | health: +10, energy: -10, fun: +20, social: +15, hygiene: +20, food: +20 |
-| 32          | 🏆          | Pet won a competition! Bravo!    | social: +10, points: +15, fun: +30, social: +25                          |
-| 33          | 🩹          | Pet is injured, auch!            | health: -10, fun: -10, hygiene: -10                                      |
-| 34          | ☕          | Pet hosts a good friend          | fun: +20, social: +25                                                    |
+| Even Number | Event Emoji | Name of the Event                                                       | Affects                                                                  |
+| ----------- | ----------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| 1           | 💘          | Pet is in love                                                          | social: +100, fun: +20                                                   |
+| 2           | 😭          | Pet lost a friend                                                       | social: -20, fun: -20                                                    |
+| 3           | 🥮          | Pet gets a snack                                                        | food: +10, weight: +1                                                    |
+| 4           | 🤢          | Pet is sick                                                             | energy: -20, fun: -10, hygiene: -5                                       |
+| 5           | 🌍          | Pet has travelled                                                       | social: +20, fun: +20, energy: -5                                        |
+| 6           | 🍻          | Pet visited a friend                                                    | social: +20, fun: +20                                                    |
+| 7           | 🧸          | Pet has a new toy                                                       | fun: +20, social: +10                                                    |
+| 8           | 💉          | Pet has been vaccinated                                                 | health: +30, points: -10                                                 |
+| 9           | 💰          | Pet found a treasure                                                    | points: +30, fun: +20                                                    |
+| 10          | 🩺          | Pet Went to the Vet                                                     | health: +20, points: -10                                                 |
+| 11          | 🤼          | Pet Found a Friend                                                      | social: +50, fun: +20                                                    |
+| 12          | 🛁          | Pet Got a Bath                                                          | health: +10, social: +10, hygiene: +100                                  |
+| 13          | 🏖           | Pet Played in the Mud                                                   | health: -5, social: +10, hygiene: -40, fun: +30                          |
+| 14          | 👹          | Pet Had a Bad Dream                                                     | social: -5, fun: -10                                                     |
+| 15          | 🏞           | Pet Discovered a New Place                                              | social: +20, points: +10                                                 |
+| 16          | 🌧           | Pet Played in the Rain                                                  | fun: +30, hygiene: -10                                                   |
+| 17          | 🏝           | Pet Found a Cozy Spot                                                   | energy: +20, fun: +15                                                    |
+| 18          | 🐝          | Pet Got Stung by a Bee                                                  | health: -10, fun: -10                                                    |
+| 19          | 🌳          | Pet Visited a Park                                                      | social: +25, fun: +25                                                    |
+| 20          | 🤡          | Pet Attended a Pet Show                                                 | social: +30, fun: +20, points: -10, energy: -15                          |
+| 21          | 🌞          | Pet Had a Sunny Day                                                     | energy: +10, fun: +10                                                    |
+| 22          | 🎮          | Pet Learned a New Game                                                  | fun: +25, points: +15                                                    |
+| 23          | 💊          | Pet have got a medical treatment                                        | health: +20, points: -5                                                  |
+| 24          | 🌿          | Pet smoked marijuana                                                    | health: +100, fun: +100, energy: -10                                     |
+| 25          | 🍄          | Pet ate a mushroom                                                      | health: -5, fun: +30, energy: +10                                        |
+| 26          | ❤️‍🩹          | Pet is heartbroken                                                      | health: -5, fun: -10, social: -20                                        |
+| 27          | 💅          | Pet enjoyed a cosmetic treatment                                        | health: +10, points: -5, fun: +20, social: +15, hygiene: +20             |
+| 28          | 🎅          | Its CHRISTMAS!!                                                         | fun: +30, social: +30, hygiene: +20, food: +20, weight: +1               |
+| 29          | 🍔          | Pet enjoyed eating some junkfood                                        | health: -5, fun: +20, weight: +1                                         |
+| 30          | 🍭          | Pet enjoyed eating some sweets                                          | health: -5, fun: +20, social: +5, weight: +1                             |
+| 31          | 🥂          | Pet attended an event                                                   | health: +10, energy: -10, fun: +20, social: +15, hygiene: +20, food: +20 |
+| 32          | 🏆          | Pet won a competition! Bravo!                                           | social: +10, points: +15, fun: +30, social: +25                          |
+| 33          | 🩹          | Pet is injured, auch!                                                   | health: -10, fun: -10, hygiene: -10                                      |
+| 34          | ☕          | Pet hosts a good friend                                                 | fun: +20, social: +25                                                    |
+| 35          | 🚴          | Pet complete a diet program! It is skinnier and healthier now!          | fun: +20, social: +20, health: +15, weight: -5                           |
+| 36          | 🪼           | Your pet was burned by a jelly fish! Auch!                              | fun: -10, health: -5                                                     |
+| 37          | 🛍           | Pet had a shopping day with you! Awesome!                               | fun: +30, social: +25, food: +15, health: +5, energy: -10                |
+| 38          | 🍫          | Pet had a chocolate! Yummyyyyyyy!                                       | fun: +20, health: -3, energy: +5, weight: +1                             |
+| 39          | 🍰          | Pet had a cake! Yummy!!                                                 | fun: +20, energy: +5, toilet: -3, weight: +1, health: -3                 |
+| 40          | 🥤          | Pet drank some Cola, until it finished the bottle! What a capacity :)   | fun: +20, energy: +5, toilet: -10, weight: +1, health: -3                |
+| 41          | 🎤          | Pet attended a karaoke event                                            | fun: +30, social: +25, energy: -10                                       |
+| 42          | 🎁          | Pet has got a nice present from relatives                               | fun: +30, social: +35, energy: +5                                        |
+| 43          | 🎓          | Pet has graduated after finishing his studies in university! Mazal Tov! | fun: +40, social: +35, energy: +15                                       |
+| 44          | ☕          | Your pet has been infected with fleas and pests. Shit!                  | fun: -15, social: -15, hygiene: -20, health: -5, energy: -10             |
+| 45          | 💞          | Pet has sex with another pet                                            | fun: +40, social: +40, hygiene: -10, health: +10                         |
+| 46          | 🌋          | Pet just saw a natural wonder                                           | fun: +25, social: +15                                                    |
+| 47          | 🚽          | Your toilet is clean again                                              | fun: +15, social: +15, hygiene: +30, toilet: +30                         |
+| 48          | 💇‍♂️          | Pet has got a new haircut                                               | fun: +25, social: +25, hygiene: +25                                      |
+| 49          | 🍸          | Pet drank too much alcohol and now it is drunk                          | fun: +25, social: +15                                                    |
+| 50     | 🧞    | Your pet met a Djinny!                                 | fun: +35, social: +35, energy: +30, hygiene: +10    |
+
+
+
+
+
+
+
+
 
 # Development History
 
@@ -167,7 +190,7 @@ To start the game:
 - [x] Add instrutions for the game.
 - [x] Add an option to name the animal.
 - [x] Add needs pramethers affected directly by the user: Food, Energie, Hygiene, Fun, Social and Energy.
-- [x] Add needs paramether affected by the overall status of the animal and cant be changed by the user: Mood, Health, Age, Points.
+- [x] Add needs paramether affected by the overall status of the animal and cant be changed by the user: Mood, Health, Age, Points and Weight.
 - [x] Add birthdays for the animal.
 - [x] Add counter for the points according to different events.
 - [x] Health paramether will be affected if the animal is not neglected.
@@ -188,6 +211,8 @@ To start the game:
 - [ ] Create small games to play with the pet.
 - [ ] Add a language.
 - [ ] Add levels and difficulties.
+- [ ] Skills.
+- [ ] Sport.
 
 ### Internal info - functions order:
 

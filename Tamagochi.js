@@ -12,7 +12,6 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-
 // Initial values for pet needs, health, age, and points
 // ? Object needs
 const needs = {
@@ -343,6 +342,102 @@ const randomEvents = [
     description: "fun: +20, social: +25",
     affect: { fun: +20, social: +25 },
     eventEmoji: "☕"
+  },
+  {
+    name: "Pet complete a diet program! It is skinnier and heathier now!",
+    description: "un: +20, social: +20, health: +15, weight: -5",
+    affect: { fun: +20, social: +20, health: +15, weight: -5 },
+    eventEmoji: "🚴"
+  },
+  {
+    name: "Your pet was burned by a jelly fish! Auch!",
+    description: "fun: -10, health: -5",
+    affect: { fun: -10, health: -5 },
+    eventEmoji: "🪼"
+  },
+  {
+    name: "Pet had a shopping day with you! Awesome!",
+    description: "fun: +30, social: +25, food: +15, health: +5, energy: -10 ",
+    affect: { fun: +30, social: +25, food: +15, health: +5, energy: -10 },
+    eventEmoji: "🛍"
+  },
+  {
+    name: "Pet had a chocolate! Yummyyyyyyy!",
+    description: "fun: +20, health: -3, energy: +5, weight: +1",
+    affect: { fun: +20, health: -3, energy: +5, weight: +1 },
+    eventEmoji: "🍫"
+  },
+  {
+    name: "Pet had a cake! Yummy!!",
+    description: "fun: +20, energy: +5, toilet: -3, weight: +1, health: -3",
+    affect: { fun: +20, energy: +5, toilet: -3, weight: +1, health: -3 },
+    eventEmoji: "🍰"
+  },
+  {
+    name: "Pet drank some Cola, until it finished the bottle! What a capacity :)",
+    description: "fun: +20, energy: +5, toilet: -10, weight: +1, health: -3",
+    affect: { fun: +20, energy: +5, toilet: -10, weight: +1, health: -3 },
+    eventEmoji: "🥤"
+  },
+  {
+    name: "Pet attended a karaoke event",
+    description: "fun: +30, social: +25",
+    affect: { fun: +30, social: +30, energy: -10 },
+    eventEmoji: "🎤"
+  },
+  {
+    name: "Pet has got a nice present from relatives",
+    description: "fun: +30, social: +35, energy: +5",
+    affect: { fun: +30, social: +35, energy: +5 },
+    eventEmoji: "🎁"
+  },
+  {
+    name: "Pet has graduated after finishing his studies in university! Mazal Tov!",
+    description: " fun: +40, social: +35, energy: +15",
+    affect: { fun: +40, social: +35, energy: +15 },
+    eventEmoji: "🎓"
+  },
+  {
+    name: "Your pet has been infected with fleas and pests. Shit!",
+    description: "fun: -15, social: -15, hygiene: -20, health: -5, energy: -10",
+    affect: { fun: -15, social: -15, hygiene: -20, health: -5, energy: -10 },
+    eventEmoji: "☕"
+  },
+  {
+    name: "Pet has sex with another pet",
+    description: "fun: +40, social: +40, hygiene: -10, health: +10",
+    affect: { fun: +40, social: +40, hygiene: -10, health: +10 },
+    eventEmoji: "💞"
+  },
+  {
+    name: "Pet just saw a natural wonder",
+    description: " fun: +25, social: +15",
+    affect: { fun: +25, social: +15 },
+    eventEmoji: "🌋"
+  },
+  {
+    name: "Your toilet is clean again",
+    description: " fun: +15, social: +15, hygiene: +30, toilet: +30",
+    affect: { fun: +15, social: +15, hygiene: +30, toilet: +30 },
+    eventEmoji: "🚽"
+  },
+  {
+    name: "Pet has got a new haircut",
+    description: " fun: +25, social: +25, hygiene: +25",
+    affect: { fun: +25, social: +25, hygiene: +25 },
+    eventEmoji: "💇‍♂️"
+  },
+  {
+    name: "Pet drank too much alcohol and now it is drunk",
+    description: " fun: +25, social: +15",
+    affect: { fun: +25, social: +15 },
+    eventEmoji: "🍸"
+  },
+  {
+    name: "Your pet met a Djinny!",
+    description: " fun: +35, social: +35, energy: +30, hygiene: +10",
+    affect: { fun: +35, social: +35, energy: +30, hygiene: +10 },
+    eventEmoji: "🧞"
   }
 ];
 // Function to check and trigger a random event based on pet's age
@@ -547,6 +642,10 @@ function startGame() {
         // Explain aging and birthday celebrations
         console.log(
           "Your pet will grow by 1 day every 10 seconds. Every 10 days your pet will have a birthday."
+        );
+        // Describe the automatic decrease or gaining weight
+        console.log(
+          "Your pet can gain or lose weight, dont overfeed you pet and make sure you weignt will not be more or less than 10 than your age."
         );
         // Describe the automatic decrease in needs over time
         console.log(
@@ -800,9 +899,9 @@ function startGame() {
               );
             }
             // Ensure points never go negative
-            if (points < 0) {
-              points = 0;
-            }
+            // if (points < 0) {
+            //   points = 0;
+            // }
           }
 
           // Start decreasing needs, health and increasing age
