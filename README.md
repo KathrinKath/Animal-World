@@ -63,35 +63,35 @@ Have fun 🪅
 
 ### The first step of the game is to choose an animal and give it a name. Here you can see all the options:
 
-| Animal  | Emoji | Number |
-| ------- | ----- | ------ |
-| Dragon  | 🐉    | 0      |
-| Dog     | 🐶    | 1      |
-| Cat     | 🐱    | 2      |
-| Bunny   | 🐰    | 3      |
-| Mouse   | 🐭    | 4      |
-| Pig     | 🐷    | 5      |
-| Chick   | 🐥    | 6      |
-| Monkey  | 🐵    | 7      |
-| Shark   | 🦈    | 8      |
-| Unicorn | 🦄    | 9      |
+| Emoji | Animal  | Number |
+| ----- | ------- | ------ |
+| 🐉    | Dragon  | 0      |
+| 🐶    | Dog     | 1      |
+| 🐱    | Cat     | 2      |
+| 🐰    | Bunny   | 3      |
+| 🐭    | Mouse   | 4      |
+| 🐷    | Pig     | 5      |
+| 🐥    | Chick   | 6      |
+| 🐵    | Monkey  | 7      |
+| 🦈    | Shark   | 8      |
+| 🦄    | Unicorn | 9      |
 
 ## Needs and Parameters
 
-| Need    | Emoji | Description                                               | Range       |
-| ------- | ----- | --------------------------------------------------------- | ----------- |
-| Food    | 🍲    | Satisfy hunger                                            | 0 - 100     |
-| Energy  | 🔋    | Provide rest                                              | 0 - 100     |
-| Toilet  | 🚽    | Manage bodily functions                                   | 0 - 100     |
-| Fun     | 🎉    | Engage in enjoyable activities                            | 0 - 100     |
-| Hygiene | 🚿    | Maintain cleanliness                                      | 0 - 100     |
-| Social  | 🤝    | Interact with others                                      | 0 - 100     |
-| Mood    | 🎭    | Average of all needs, indicates overall happiness         | 0 - 100     |
-| Health  | 🩺    | Indicates overall health                                  | 0 - 100     |
-| Points  | 💰    | Collected points to increase health                       | 0 and above |
-| Age     | 👩‍🦳    | Days since the pet's birth                                | 0 and above |
-| Weight  | ⚖     | Age + 1, gained by overfeeding or decreased when starving | 1 and above |
-| Sport   | 🏋️‍♀️    | Skill development through physical activities             | 0 - 100     |
+| Emoji | Need    | Description                                               | Range       |
+| ----- | ------- | --------------------------------------------------------- | ----------- |
+| 🍲    | Food    | Satisfy hunger                                            | 0 - 100     |
+| 🔋    | Energy  | Provide rest                                              | 0 - 100     |
+| 🚽    | Toilet  | Manage bodily functions                                   | 0 - 100     |
+| 🎉    | Fun     | Engage in enjoyable activities                            | 0 - 100     |
+| 🚿    | Hygiene | Maintain cleanliness                                      | 0 - 100     |
+| 🤝    | Social  | Interact with others                                      | 0 - 100     |
+| 🎭    | Mood    | Average of all needs, indicates overall happiness         | 0 - 100     |
+| 🩺    | Health  | Indicates overall health                                  | 0 - 100     |
+| 💰    | Points  | Collected points to increase health                       | 0 and above |
+| 👩‍🦳    | Age     | Days since the pet's birth                                | 0 and above |
+| ⚖     | Weight  | Age + 1, gained by overfeeding or decreased when starving | 1 and above |
+| 🏋️‍♀️    | Sport   | Skill development through physical activities             | 0 - 100     |
 
 ## Needs Management
 
@@ -107,11 +107,11 @@ Have fun 🪅
 
 ## Weight Status and Effects
 
-| Status      | Emoji | Parameters                             | Effects                                      |
-| ----------- | ----- | -------------------------------------- | -------------------------------------------- |
-| Overweight  | 🐽    | weight >= age + 11                     | `health--`, `hygiene--`, `energy--`, `fun--` |
-| Normal      | 💯    | weight < age + 11 && weight > age - 10 | `health++`, `social++`, `energy++`, `fun++`  |
-| Underweight | ❗    | weight <= age - 10                     | `health--`, `energy--`                       |
+| Emoji | Status      | Parameters                             | Effects                                      |
+| ----- | ----------- | -------------------------------------- | -------------------------------------------- |
+| 🐽    | Overweight  | weight >= age + 11                     | `health--`, `hygiene--`, `energy--`, `fun--` |
+| 💯    | Normal      | weight < age + 11 && weight > age - 10 | `health++`, `social++`, `energy++`, `fun++`  |
+| ❗    | Underweight | weight <= age - 10                     | `health--`, `energy--`                       |
 
 ## Hotels table
 
@@ -121,35 +121,45 @@ Have fun 🪅
 | 🏩    | Love Hotel | > 80            | -60        | Hygiene: +80, Energy: +80, Toilet: +80, Fun: +80, Social: +80, Sport: +80, Food: +80        |
 | 🏰    | Castle     | > 100           | -80        | Hygiene: +100, Energy: +100, Toilet: +100, Fun: +100, Social: +100, Sport: +100, Food: +100 |
 
+## Vacation Emoji Table
+
+| Emoji | Hotel Name      | Points Required |
+| ----- | --------------- | --------------- |
+| 🏰    | Castle          | 15+             |
+| 🏯    | Japanese Castle | 10-14           |
+| 🏩    | Love Hotel      | 7-9             |
+| 🏨    | Standard Hotel  | 4-6             |
+| ⛺    | Tent            | 0-3             |
+
 ## Sport Skills Table
 
-| Skill Number | Skill Name      | Emoji |
-| ------------ | --------------- | ----- |
-| 1            | Swimming        | 🏊    |
-| 2            | Bowling         | 🎳    |
-| 3            | Football        | ⚽    |
-| 4            | Basketball      | 🏀    |
-| 5            | Tennis          | 🎾    |
-| 6            | Running         | 🏃    |
-| 7            | Cycling         | 🚲    |
-| 8            | Riding          | 🏇    |
-| 9            | Baseball        | ⚾    |
-| 10           | Skiing          | ⛷     |
-| 11           | Skateboarding   | 🛹    |
-| 12           | Surfing         | 🏄    |
-| 13           | Ping pong       | 🥊    |
-| 14           | Yoga            | 🏓    |
-| 15           | Flying disc     | 🥏    |
-| 16           | Fencing         | 🤺    |
-| 17           | Snowboard       | 🏂    |
-| 18           | Mountain biking | 🚵    |
-| 19           | Water polo      | 🤽    |
-| 20           | Juggling        | 🤹    |
-| 21           | Archery         | 🏹    |
-| 22           | Yoga            | 🧘‍♂️    |
-| 23           | Ich skate       | ⛸     |
-| 24           | Diving          | 🤿    |
-| 25           | Art             | 🎨    |
+| Emoji | Skill Name      | Skill Number |
+| ----- | --------------- | ------------ |
+| 🏊    | Swimming        | 1            |
+| 🎳    | Bowling         | 2            |
+| ⚽    | Football        | 3            |
+| 🏀    | Basketball      | 4            |
+| 🎾    | Tennis          | 5            |
+| 🏃    | Running         | 6            |
+| 🚲    | Cycling         | 7            |
+| 🏇    | Riding          | 8            |
+| ⚾    | Baseball        | 9            |
+| ⛷     | Skiing          | 10           |
+| 🛹    | Skateboarding   | 11           |
+| 🏄    | Surfing         | 12           |
+| 🥊    | Ping pong       | 13           |
+| 🏓    | Yoga            | 14           |
+| 🥏    | Flying disc     | 15           |
+| 🤺    | Fencing         | 16           |
+| 🏂    | Snowboard       | 17           |
+| 🚵    | Mountain biking | 18           |
+| 🤽    | Water polo      | 19           |
+| 🤹    | Juggling        | 20           |
+| 🏹    | Archery         | 21           |
+| 🧘‍♂️    | Yoga            | 22           |
+| ⛸     | Ich skate       | 23           |
+| 🤿    | Diving          | 24           |
+| 🎨    | Art             | 25           |
 
 ## Calculations
 
@@ -246,6 +256,7 @@ Have fun 🪅
 - [x] Skills.
 - [x] Sport.
 - [x] Vacation.
+- [x] Going on a vacation.
 
 ### Internal info - future improvments and development
 
@@ -254,9 +265,12 @@ Have fun 🪅
 - [ ] Create small games to play with the pet.
 - [ ] Add a language.
 - [ ] Add levels and difficulties.
-- [ ] Going on a vacation.
 
 ### Internal info - functions order:
+
+## Test the game
+
+- When starting to play after choosing animal and name it, pressing on "t" will change the age, weight and points parameters in order to test changes in the game without playing in order to save time when tesing the game.
 
 ## Functions Tree 18.07.2024
 

@@ -195,6 +195,9 @@ function getWeightAffects(updatedStatus) {
     // If the pet is at a normal weight, slightly decrease health and energy
     return health--, energy--;
   }
+  if (health > 100) {
+    health = 100;
+  }
   // No explicit return needed as the function modifies global variables
 }
 // ? Function vacation emojis
@@ -1244,6 +1247,11 @@ function startGame() {
                       )
                     );
                   }
+                  break;
+                case "t":
+                  points = 300;
+                  weight = 5;
+                  age = 1;
                   break;
                 case "9":
                   // Option 9: Quit the game
