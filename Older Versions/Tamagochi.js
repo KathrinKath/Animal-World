@@ -899,9 +899,9 @@ function startGame() {
               );
             }
             // Ensure points never go negative
-            // if (points < 0) {
-            //   points = 0;
-            // }
+            if (points < 0) {
+              points = 0;
+            }
           }
 
           // Start decreasing needs, health and increasing age

@@ -1,6 +1,6 @@
 # 🐀🐖 Animals World - Tamagochi Game 🐕🐈
 
-## 🖊 Description
+## Description
 
 Welcome to Animals World, a virtual pet simulation game where you can choose an animal companion and take care of its needs to keep it happy and healthy.
 I made this project based on my Java script skills I gained until now, and combined my experience with my real pets and a digital world.
@@ -9,7 +9,7 @@ Have fun 🪅
 
 ## Code Overview
 
-### 📝 General declarations for interactive game design.
+### General declarations for interactive game design.
 
 - Main menu allowing the selection of one out of 10 different animals.
 - Needs management system with automatic decrease over time.
@@ -31,9 +31,9 @@ Have fun 🪅
 - When your pet is happy you will get a compliment.
 - However, if your pet is neglected or dying, you may be reprimanded.
 
-## ▶ Getting Started
+## Getting Started
 
-### 🗂 To start the game:
+### To start the game:
 
 1. Clone this repository.
 2. Install dependencies with npm install.
@@ -42,7 +42,7 @@ Have fun 🪅
 5. Run the game with node game.js (node Tamagochi.js).
 6. Leave the game by clicking "Ctrl + z" inside the terminal.
 
-## 🗒 How to Play
+## How to Play
 
 1. Choose an animal by entering a number between 0 to 9.
 2. Name your pet - you can use special characters and numbers in order to create a uniqe name and benefit the advantage of a virtual life.
@@ -61,7 +61,7 @@ Have fun 🪅
 14. Every 7 days, a random even will happen and affect your pet, positivly or nagativly. Be prepared to fill the needs - the chage can be drastic and can affects all the paramethers.
 15. Note - without taking any action from the moment you began to play, your pets life expectancy will be maximum 30 days.
 
-## 1️⃣ The first step of the game is to choose an animal and give it a name. Here you can see all the options:
+### The first step of the game is to choose an animal and give it a name. Here you can see all the options:
 
 | Emoji | Animal  | Number |
 | ----- | ------- | ------ |
@@ -76,7 +76,7 @@ Have fun 🪅
 | 🦈    | Shark   | 8      |
 | 🦄    | Unicorn | 9      |
 
-## 2️⃣ Needs and Parameters
+## Needs and Parameters
 
 | Emoji | Need    | Description                                               | Range       |
 | ----- | ------- | --------------------------------------------------------- | ----------- |
@@ -93,7 +93,7 @@ Have fun 🪅
 | ⚖     | Weight  | Age + 1, gained by overfeeding or decreased when starving | 1 and above |
 | 🏋️‍♀️    | Sport   | Skill development through physical activities             | 0 - 100     |
 
-## \*️⃣ Needs Management
+## Needs Management
 
 | Emoji | Action    | Description                                                           | Food | Energy | Toilet | Fun | Hygiene | Social | sport | Health |
 | ----- | --------- | --------------------------------------------------------------------- | ---- | ------ | ------ | --- | ------- | ------ | ----- | ------ |
@@ -105,7 +105,7 @@ Have fun 🪅
 | 🧑‍🤝‍🧑    | Socialize | Increases social, decreases energy, food, toilet                      | -    | -10    | -5     | +10 | -       | +30    |       |        |
 | 🏋️‍♀️    | Train     | Increases sport, fun, social; decreases energy, toilet, food, hygiene | -15  | -20    | -15    | +30 | -15     | +15    | +10   | +5     |
 
-## \*️⃣ General Value Emojis
+## General Value Emojis
 
 | Emoji | Value in needs | Status   |
 | ----- | -------------- | -------- |
@@ -117,7 +117,7 @@ Have fun 🪅
 | 😭    | 1-9            | Critical |
 | 💀    | 0              | Dead     |
 
-## 3️⃣ Age Emojis
+## Age Emojis
 
 | Emoji | Value in days | Status           |
 | ----- | ------------- | ---------------- |
@@ -128,7 +128,7 @@ Have fun 🪅
 | 🧒    | 10-24         | Child            |
 | 👶    | 0-9           | Baby             |
 
-## 4️⃣ Points Emojis
+## Points Emojis
 
 | Emoji | Value in points | Status      |
 | ----- | --------------- | ----------- |
@@ -142,7 +142,7 @@ Have fun 🪅
 | 💳    | 20-49           | Poor        |
 | 🧾    | 0-19            | Very poor   |
 
-## 5️⃣ Weight Status and Effects
+## Weight Status and Effects
 
 | Emoji | Status      | Parameters                             | Effects                                      |
 | ----- | ----------- | -------------------------------------- | -------------------------------------------- |
@@ -150,7 +150,7 @@ Have fun 🪅
 | 💯    | Normal      | weight < age + 11 && weight > age - 10 | `health++`, `social++`, `energy++`, `fun++`  |
 | ❗    | Underweight | weight <= age - 10                     | `health--`, `energy--`                       |
 
-## 6️⃣ Hotels table
+## Hotels table
 
 | Emoji | Hotel Name | Points Required | Point Cost | Needs Affects                                                                               |
 | ----- | ---------- | --------------- | ---------- | ------------------------------------------------------------------------------------------- |
@@ -158,7 +158,7 @@ Have fun 🪅
 | 🏩    | Love Hotel | > 80            | -60        | Hygiene: +80, Energy: +80, Toilet: +80, Fun: +80, Social: +80, Sport: +80, Food: +80        |
 | 🏰    | Castle     | > 100           | -80        | Hygiene: +100, Energy: +100, Toilet: +100, Fun: +100, Social: +100, Sport: +100, Food: +100 |
 
-## \*️⃣ Vacation Emoji Table
+## Vacation Emoji Table
 
 | Emoji | Hotel Name      | Points Required |
 | ----- | --------------- | --------------- |
@@ -168,7 +168,7 @@ Have fun 🪅
 | 🏨    | Standard Hotel  | 4-6             |
 | ⛺    | Tent            | 0-3             |
 
-## 7️⃣ Sport Skills Table
+## Sport Skills Table
 
 | Emoji | Skill Name      | Skill Number |
 | ----- | --------------- | ------------ |
@@ -214,7 +214,7 @@ Have fun 🪅
 
 ### Vacations: _Yout pet can go on vacations as long as you have enough points for it. It is a bonus and will improve your needs, but not a must._
 
-## 8️⃣ Random Events Table
+## Random Events Table
 
 | Even Number | Event Emoji | Name of the Event                                                       | Affects                                                                  |
 | ----------- | ----------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------ |
@@ -269,11 +269,11 @@ Have fun 🪅
 | 49          | 🍸          | Pet drank too much alcohol and now it is drunk                          | fun: +25, social: +15                                                    |
 | 50          | 🧞          | Your pet met a Djinny!                                                  | fun: +35, social: +35, energy: +30, hygiene: +10                         |
 
-# 📈 Development History
+# Development History
 
-### Version 21.07.2024 14:30
+### Version 17.07.2024 14:30
 
-## ✅ Latest updates: (15-21.07.2024)
+## Latest updates: (15-19.07.2024)
 
 - [x] Add 10 different animals to play with.
 - [x] Add instrutions for the game.
@@ -296,9 +296,8 @@ Have fun 🪅
 - [x] Sport.
 - [x] Vacation.
 - [x] Going on a vacation.
-- [x] Testing mod.
 
-### ⭕ Internal info - future improvments and development
+### Internal info - future improvments and development
 
 - [ ] Connect sounds to the game.
 - [ ] Add sub-menu to each one of the needs giving the user more options.
@@ -308,11 +307,11 @@ Have fun 🪅
 
 ### Internal info - functions order:
 
-## 🔬 Test the game
+## Test the game
 
 - When starting to play after choosing animal and name it, pressing on "t" will change the age, weight and points parameters in order to test changes in the game without playing in order to save time when tesing the game.
 
-## 🔷 Testing game options:
+## Testing game options:
 
 | Emoji | Command | Description                                                          | Action                                                                                                                                   | What Can Be Tested                                            |
 | ----- | ------- | -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
@@ -324,7 +323,7 @@ Have fun 🪅
 | 🌟    | `n`     | Testing and changing all user-controllable needs of pet to 100 (Max) | `needs.food = 100; needs.toilet = 100; needs.energy = 100; needs.hygiene = 100; needs.fun = 100; needs.social = 100; needs.sport = 100;` | All needs (food, toilet, energy, hygiene, fun, social, sport) |
 | 🩺    | `h`     | Testing and changing health of pet by decreasing it                  | `health -= 10;`                                                                                                                          | Decreased Health                                              |
 
-## 🌲 Functions Tree 21.07.2024
+## Functions Tree 21.07.2024
 
 - startGame
 
@@ -351,96 +350,71 @@ Have fun 🪅
 * - getWeightAffects
 * - getVacationEmoji
 
-## 📜 Functions in the project (21.07.2024)
+## Functions in the project (21.07.2024)
 
-### 📌 displayNeeds
-
+Functions in the Project
+displayNeeds
 This function is responsible for displaying the current state of all needs (e.g., food, energy, hygiene) for the pet. It provides a summary view to the user, showing how each need is currently being met.
 
-**Related Functions:**
-
-- _checkAndTriggerRandomEvent_
-- _checkNeeds_
-- _getWeightAffects_
-- _checkWeightStatus_
-
-### 📌 decreaseNeeds
-
+Related Functions:
+checkAndTriggerRandomEvent
+checkNeeds
+getWeightAffects
+checkWeightStatus
+decreaseNeeds
 This function manages the automatic decrease of the pet’s needs over time. For example, as time progresses, the pet’s hunger and energy levels may decrease, requiring the user to take action to maintain the pet’s well-being.
 
-**Related Functions:**
-
-- _checkNeeds_
-- _displayNeeds_
-
-### 📌 decreaseHealth
-
+Related Functions:
+checkNeeds
+displayNeeds
+decreaseHealth
 This function decreases the pet’s health. It might be called in response to certain conditions or actions that negatively impact the pet's health status.
 
-### 📌 increaseAge
-
+increaseAge
 This function increases the age of the pet. It may also trigger random events related to aging, such as changes in the pet’s needs or abilities.
 
-**Related Functions:**
-
-- _checkAndTriggerRandomEvent_
-
-### 📌 increaseHealth
-
+Related Functions:
+checkAndTriggerRandomEvent
+increaseHealth
 This function increases the pet’s health, typically in response to positive actions such as proper care or activities that improve the pet’s well-being.
 
-### 📌 displayMenu
-
+displayMenu
 This function displays the main menu of options for the user, allowing them to choose actions to perform with the pet. It handles user input and executes the corresponding action.
 
-### 📌 isValidName
-
+isValidName
 This function checks if a given name for the pet is valid. It ensures that the name meets any predefined criteria or constraints.
 
-### 📌 getEmoji
-
+getEmoji
 This function returns an emoji representing the current state of a value, such as happiness or health, based on predefined ranges.
 
-### 📌 getAgeEmoji
-
+getAgeEmoji
 This function provides an emoji representing the pet’s age category, helping visualize the pet’s life stage (e.g., baby, adult, elderly).
 
-### 📌 getPointsEmoji
-
+getPointsEmoji
 This function returns an emoji based on the pet’s points value, indicating the pet’s financial status or wealth level.
 
-### 📌 getWeightEmoji
-
+getWeightEmoji
 This function returns an emoji representing the pet’s weight status (e.g., overweight, normal, underweight).
 
-**Related Functions:**
-
-- _checkWeightStatus_
-- _getWeightAffects_
-
-### 📌 checkWeightStatus
-
+Related Functions:
+checkWeightStatus
+getWeightAffects
+checkWeightStatus
 This function assesses and updates the pet’s weight status based on current weight and other factors.
 
-**Related Functions:**
-
-- _getWeightAffects_
-- _getWeightEmoji_
-
-### 📌 getWeightAffects
-
+Related Functions:
+getWeightAffects
+getWeightEmoji
+getWeightAffects
 This function determines the effects of the pet’s weight on its needs or other attributes.
 
-**Related Functions:**
-
-- _checkWeightStatus_
-- _displayNeeds_
-
-### 📌 getVacationEmoji
-
+Related Functions:
+checkWeightStatus
+displayNeeds
+getVacationEmoji
 This function returns an emoji based on the type of vacation the pet is on, reflecting different levels of vacation quality.
 
-## 📎 Explanation Summary:
+## Explanation:
 
 - startGame: Entry point of the game logic.
 - calculateMood: Calculates and returns the mood of the pet.
@@ -465,7 +439,114 @@ This function returns an emoji based on the type of vacation the pet is on, refl
 - getWeightAffects: Determines the impact of weight on the pet’s needs.
 - getVacationEmoji: Returns an emoji for the pet’s vacation type.
 
-## © Credits
+## Functions Tree 18.07.2024
+
+- startGame
+
+* - calculateMood
+* - displayNeeds
+  * - checkAndTriggerRandomEvent
+  * - checkNeeds
+  * - getWeightAffects
+  * - checkWeightStatus
+* - decreaseNeeds
+  * - checkNeeds
+  * - displayNeeds
+* - decreaseHealth
+* - increaseAge
+  * - checkAndTriggerRandomEvent
+* - increaseHealth
+* - isValidName
+* - getEmoji
+* - getAgeEmoji
+* - getPointsEmoji
+* - getWeightEmoji
+
+### 18.07.2024
+
+startGame
+└── calculateMood
+└── displayNeeds
+└── checkAndTriggerRandomEvent
+└── checkNeeds
+└── getWeightAffects
+└── checkWeightStatus
+└── decreaseNeeds
+└── checkNeeds
+└── displayNeeds
+└── decreaseHealth
+└── increaseAge
+└── checkAndTriggerRandomEvent
+└── increaseHealth
+└── isValidName
+└── getEmoji
+└── getAgeEmoji
+└── getPointsEmoji
+└── getWeightEmoji
+└── checkWeightStatus
+
+## Functions Trees 17.07.2024
+
+- **startGame**
+
+  - **isValidName**
+  - **getEmoji**
+  - **startGame**
+    - `rl.question` (Initial choice)
+      - Nested `rl.question` (Name input)
+        - **displayNeeds**
+          - **calculateMood**
+          - **getEmoji**
+        - **checkNeeds**
+        - **decreaseNeeds**
+          - **displayNeeds**
+          - **checkNeeds**
+          - **getEmoji**
+        - **decreaseHealth**
+        - **increaseAge**
+        - **increaseHealth**
+        - **displayMenu**
+          - **displayNeeds**
+          - **checkNeeds**
+          - **getEmoji**
+      - **clearInterval**
+        - `decreaseInterval`
+        - `healthInterval`
+        - `ageInterval`
+        - `healthBonusInterval`
+  - `rl.on ('close' event)`
+
+### 17.07.2024
+
+startGame
+├── isValidName
+├── getEmoji
+└── startGame
+├── rl.question (Initial choice)
+│ └── rl.question (Name input)
+│ ├── displayNeeds
+│ │ ├── calculateMood
+│ │ └── getEmoji
+│ ├── checkNeeds
+│ ├── decreaseNeeds
+│ │ ├── displayNeeds
+│ │ ├── checkNeeds
+│ │ └── getEmoji
+│ ├── decreaseHealth
+│ ├── increaseAge
+│ ├── increaseHealth
+│ └── displayMenu
+│ ├── displayNeeds
+│ ├── checkNeeds
+│ └── getEmoji
+└── clearInterval
+├── decreaseInterval
+├── healthInterval
+├── ageInterval
+└── healthBonusInterval
+rl.on ('close' event)
+
+## Credits
 
 ### Developed by Kathrin Peled
 

@@ -27,6 +27,7 @@ let points = 0; // Initial points
 let weight = 1; // Initial weight
 currentSkillIndex = 0; // Index to track current skill
 // Array of sport skills that the pet can acquire
+// ? Array skills names
 const sportSkills = [
   "Swimming",
   "Bowling",
@@ -55,8 +56,10 @@ const sportSkills = [
   "Art"
 ];
 // Array to store new skills acquired by the pet
+// ? Empty array skills names and emojis
 let newSkills = [];
 // Array of emojis corresponding to the sport skills
+// ? Array skills emojis
 sportSkillsEmoji = [
   "🏊",
   "🎳",
@@ -85,6 +88,7 @@ sportSkillsEmoji = [
   "🎨"
 ];
 // Create a table to display the skills and their corresponding emojis
+// ? Table skills names and emojis creation
 let skillsTable = new Table({
   head: [colors.bgBlue.bold("Skill Name"), colors.bgBlue.bold("Emoji")],
   colWidths: [30, 10]
@@ -216,7 +220,7 @@ function getVacationEmoji(value) {
   }
 }
 // Array of random events with their effects and emojis
-// ? Object events
+// ? Array of objects random events
 const randomEvents = [
   {
     name: "Pet is in love",
@@ -868,7 +872,7 @@ function startGame() {
               ["👵 Age", `${age} days`, `${getAgeEmoji(age)}`], // Row for Age parameter
               ["💰 Points", `${points}`, `${getPointsEmoji(points)}`], // Row for Points parameter
               ["🏋️‍♂️ Weight", `${weight}`, `${getWeightEmoji(updatedStatus)}`], // Row for Weight parameter
-              ["🌅 vacations", `${vacations}`, `${getVacationEmoji(vacations)}`] // ~ Create emoji table
+              ["🌅 vacations", `${vacations}`, `${getVacationEmoji(vacations)}`] //  Row for Vacations counter
             );
             // Outputting the additionalTable in string format
             // ? Table printed on terminal
@@ -1248,10 +1252,36 @@ function startGame() {
                     );
                   }
                   break;
-                case "t":
+                // * Testing commands, only for checking different statuses in the game
+                // ? Test test
+                case "t": // Testing and chaging several elements at once
                   points = 300;
                   weight = 5;
-                  age = 1;
+                  age = 3;
+                  break;
+                case "w": // Testing and chaging weight parameter by increasing it
+                  weight += 5;
+                  break;
+                case "u": // Testing and chaging weight parameter by decreasing it
+                  weight -= 5;
+                  break;
+                case "p": // Testing and chaging points parameter by increasing it
+                  points += 100;
+                  break;
+                case "a": // Testing and chaging age of pet by increasing it
+                  age += 3;
+                  break;
+                case "n": // Testing and chaging all user controlable needs of pet by increasing it to 100 (Max)
+                  needs.food = 100;
+                  needs.toilet = 100;
+                  needs.energy = 100;
+                  needs.hygiene = 100;
+                  needs.fun = 100;
+                  needs.social = 100;
+                  needs.sport = 100;
+                  break;
+                case "h": // Testing and chaging health of pet by decreasing it
+                  health -= 10;
                   break;
                 case "9":
                   // Option 9: Quit the game
