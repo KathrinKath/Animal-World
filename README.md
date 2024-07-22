@@ -78,20 +78,21 @@ Have fun 🪅
 
 ## 2️⃣ Needs and Parameters
 
-| Emoji | Need    | Description                                               | Range       |
-| ----- | ------- | --------------------------------------------------------- | ----------- |
-| 🍲    | Food    | Satisfy hunger                                            | 0 - 100     |
-| 🔋    | Energy  | Provide rest                                              | 0 - 100     |
-| 🚽    | Toilet  | Manage bodily functions                                   | 0 - 100     |
-| 🎉    | Fun     | Engage in enjoyable activities                            | 0 - 100     |
-| 🚿    | Hygiene | Maintain cleanliness                                      | 0 - 100     |
-| 🤝    | Social  | Interact with others                                      | 0 - 100     |
-| 🎭    | Mood    | Average of all needs, indicates overall happiness         | 0 - 100     |
-| 🩺    | Health  | Indicates overall health                                  | 0 - 100     |
-| 💰    | Points  | Collected points to increase health                       | 0 and above |
-| 👩‍🦳    | Age     | Days since the pet's birth                                | 0 and above |
-| ⚖     | Weight  | Age + 1, gained by overfeeding or decreased when starving | 1 and above |
-| 🏋️‍♀️    | Sport   | Skill development through physical activities             | 0 - 100     |
+| Emoji | Need     | Description                                               | Range       | Type                          |
+| ----- | -------- | --------------------------------------------------------- | ----------- | ----------------------------- |
+| 🍲    | Food     | Satisfy hunger                                            | 0 - 100     | User-Controlled               |
+| 🔋    | Energy   | Provide rest                                              | 0 - 100     | User-Controlled               |
+| 🚽    | Toilet   | Manage bodily functions                                   | 0 - 100     | User-Controlled               |
+| 🎉    | Fun      | Engage in enjoyable activities                            | 0 - 100     | User-Controlled               |
+| 🚿    | Hygiene  | Maintain cleanliness                                      | 0 - 100     | User-Controlled               |
+| 🤝    | Social   | Interact with others                                      | 0 - 100     | User-Controlled               |
+| 🎭    | Mood     | Average of all needs, indicates overall happiness         | 0 - 100     | Side Effect                   |
+| 🩺    | Health   | Indicates overall health                                  | 0 - 100     | Side Effect                   |
+| 💰    | Points   | Collected points to increase health                       | 0 and above | Collection                    |
+| 👩‍🦳    | Age      | Days since the pet's birth                                | 0 and above | Side Effect                   |
+| ⚖     | Weight   | Age + 1, gained by overfeeding or decreased when starving | 1 and above | Side Effect / User-Controlled |
+| 🏋️‍♀️    | Sport    | Skill development through physical activities             | 0 - 100     | Collection                    |
+| 🏖     | Vacation | Time spent on vacation for special rewards                | 0 and above | Collection / User-Controlled  |
 
 ## \*️⃣ Needs Management
 
@@ -144,11 +145,11 @@ Have fun 🪅
 
 ## 5️⃣ Weight Status and Effects
 
-| Emoji | Status      | Parameters                             | Effects                                      |
-| ----- | ----------- | -------------------------------------- | -------------------------------------------- |
-| 🐽    | Overweight  | weight >= age + 11                     | `health--`, `hygiene--`, `energy--`, `fun--` |
-| 💯    | Normal      | weight < age + 11 && weight > age - 10 | `health++`, `social++`, `energy++`, `fun++`  |
-| ❗    | Underweight | weight <= age - 10                     | `health--`, `energy--`                       |
+| Emoji | Status      | Parameters                                       | Effects                                      |
+| ----- | ----------- | ------------------------------------------------ | -------------------------------------------- |
+| 🐽    | Overweight  | weight >= age + 11                               | `health--`, `hygiene--`, `energy--`, `fun--` |
+| 💯    | Normal      | weight < age + 11 && weight > age - 10           | `health++`, `social++`, `energy++`, `fun++`  |
+| ❗    | Underweight | weight <= age - 10 (babies can't be underweight) | `health--`, `energy--`                       |
 
 ## 6️⃣ Hotels table
 
@@ -198,7 +199,7 @@ Have fun 🪅
 | 🤿    | Diving          | 24           |
 | 🎨    | Art             | 25           |
 
-## Calculations
+## 🔢 Calculations
 
 ### Mood: _Average of all needs and health._
 
@@ -208,7 +209,7 @@ Have fun 🪅
 
 ### Age: _Your pet will get older by 1 day every 10 seconds._
 
-### Weight: _The weight of your pet is a combination of its age and hunger status, including overfeeding._
+### Weight: _The weight of your pet is a combination of its age and hunger status, including overfeeding. When pets weight is 0, it will die from starvation._
 
 ### Skills: _Your pets skills are related to your sport activity. When you have enough points and you choose the sport need for your pet, your pet will gain a new skills together with a big raise of fun, health and social needs._
 
@@ -262,7 +263,7 @@ Have fun 🪅
 | 42          | 🎁          | Pet has got a nice present from relatives                               | fun: +30, social: +35, energy: +5                                        |
 | 43          | 🎓          | Pet has graduated after finishing his studies in university! Mazal Tov! | fun: +40, social: +35, energy: +15                                       |
 | 44          | ☕          | Your pet has been infected with fleas and pests. Shit!                  | fun: -15, social: -15, hygiene: -20, health: -5, energy: -10             |
-| 45          | 💞          | Pet has sex with another pet                                            | fun: +40, social: +40, hygiene: -10, health: +10                         |
+| 45          | 💞          | Pet made love with another pet                                          | fun: +40, social: +40, hygiene: -10, health: +10                         |
 | 46          | 🌋          | Pet just saw a natural wonder                                           | fun: +25, social: +15                                                    |
 | 47          | 🚽          | Your toilet is clean again                                              | fun: +15, social: +15, hygiene: +30, toilet: +30                         |
 | 48          | 💇‍♂️          | Pet has got a new haircut                                               | fun: +25, social: +25, hygiene: +25                                      |
@@ -279,7 +280,7 @@ Have fun 🪅
 - [x] Add instrutions for the game.
 - [x] Add an option to name the animal.
 - [x] Add needs pramethers affected directly by the user: Food, Energie, Hygiene, Fun, Social and Energy.
-- [x] Add needs paramether affected by the overall status of the animal and cant be changed by the user: Mood, Health, Age, Points and Weight.
+- [x] Add needs paramether affected by the overall status of the animal and can't be changed by the user: Mood, Health, Age, Points and Weight.
 - [x] Add birthdays for the animal.
 - [x] Add counter for the points according to different events.
 - [x] Health paramether will be affected if the animal is not neglected.
@@ -305,6 +306,13 @@ Have fun 🪅
 - [ ] Create small games to play with the pet.
 - [ ] Add a language.
 - [ ] Add levels and difficulties.
+- [ ] Split the code into functions and pages for better organization and clarity.
+- [ ] Add collections of toys affecting the fun parameter.
+- [ ] Add achivements for good care, for example 10 days without being sick.
+- [ ] Achievements and Badges - implement an achievements system where users can earn badges for completing certain tasks / skills or reaching milestones.
+- [ ] Quests and Missions - add daily or weekly quests/missions that users can complete for extra rewards. This encourages regular engagement with the game.
+- [ ] Seasonal Changes - introduce seasonal changes and events that affect gameplay. For example, during winter, the pet might need more sleep annd tend to
+      be more sick, or during summer, the pet might need more showers etc.
 
 ### Internal info - functions order:
 
